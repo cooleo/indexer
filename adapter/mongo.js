@@ -26,52 +26,6 @@ var User = require('./models/User');
 var Video = require('./models/Video');
 var Feed = require('./models/Feed');
 
-
-var getGlobbedPaths = function (globPatterns, excludes) {
-    // URL paths regex
-    var urlRegex = new RegExp('^(?:[a-z]+:)?\/\/', 'i');
-
-    // The output array
-    var output = [];
-
-    // If glob pattern is array then we use each pattern in a recursive way, otherwise we use glob
-    if (_.isArray(globPatterns)) {
-        globPatterns.forEach(function (globPattern) {
-            output = _.union(output, getGlobbedPaths(globPattern, excludes));
-        });
-    } else if (_.isString(globPatterns)) {
-        if (urlRegex.test(globPatterns)) {
-            output.push(globPatterns);
-        } else {
-            var files = glob.sync(globPatterns);
-            if (excludes) {
-                files = files.map(function (file) {
-                    if (_.isArray(excludes)) {
-                        for (var i in excludes) {
-                            file = file.replace(excludes[i], '');
-                        }
-                    } else {
-                        file = file.replace(excludes, '');
-                    }
-                    return file;
-                });
-            }
-            output = _.union(output, files);
-        }
-    }
-
-    return output;
-};
-
-//var modelFiles = getGlobbedPaths('models/*.js')
-//// Globbing model files
-//console.log('modelFiles:' + modelFiles.length);
-//modelFiles.forEach(function (modelPath) {
-//    console.log(modelPath);
-//   // require(path.resolve(modelPath));
-//});
-
-
 var mongoModels, modelConnections;
 module.exports.init = function (config) {
     orm.loadCollection(App);

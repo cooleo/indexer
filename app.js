@@ -2,7 +2,6 @@
 var express = require('express'),
     _ = require('lodash'),
     app = express(),
-    Waterline = require('waterline'),
     bodyParser = require('body-parser'),
     methodOverride = require('method-override');
 
@@ -10,8 +9,6 @@ var express = require('express'),
 var env = require('./config/env/local');
 var redisConfig = env.redis;
 var mongoConfig = env.mongo;
-
-
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
