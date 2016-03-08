@@ -17,6 +17,8 @@
     "sails-mongo":"0.12.0",
     "lodash":"4.6.1",
     "sails-redis":"0.10.7",
-    "hiredis":"0.4.1"
+    "hiredis":"0.4.1",
+    "glob": "^5.0.13",
+    "chalk": "^1.1.0"
   }
 }
