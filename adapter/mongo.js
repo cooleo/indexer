@@ -2,6 +2,8 @@ var _ = require('lodash'),
     Waterline = require('waterline');
 var orm = new Waterline();
 
+// load models here
+
 var User = Waterline.Collection.extend({
     identity: 'user',
     connection: 'connection',
@@ -28,7 +30,6 @@ module.exports.init = function (config) {
         if (err) throw err;
         mongoModels = models.collections;
         modelConnections = models.connections;
-        console.log("To see saved users, visit http://localhost:3000/users");
     });
 };
 

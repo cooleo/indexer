@@ -2,6 +2,8 @@ var _ = require('lodash'),
     Waterline = require('waterline');
 var orm = new Waterline();
 
+
+// load models here
 var User = Waterline.Collection.extend({
     identity: 'user',
     connection: 'connection',
