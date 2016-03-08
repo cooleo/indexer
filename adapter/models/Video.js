@@ -2,7 +2,7 @@
 var  Waterline = require('waterline');
 
 var Video = Waterline.Collection.extend({
-  identity: 'user',
+  identity: 'video',
   connection: 'connection',
   attributes: {
     title: 'string',

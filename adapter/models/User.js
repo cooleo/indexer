@@ -1,6 +1,6 @@
 var  Waterline = require('waterline');
 var User = Waterline.Collection.extend({
-    identity: 'tag',
+    identity: 'user',
     connection: 'connection',
     attributes: {
         email: {
