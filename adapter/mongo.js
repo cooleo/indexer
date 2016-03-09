@@ -51,13 +51,33 @@ module.exports.init = function (config) {
     });
 };
 
-module.exports.createUser = function(user, callback){
-    mongoModels.user.create(user, function(err, model) {
-        if(err) callback(err, null);
+module.exports.createVideo = function(video, callback){
+    mongoModels.video.create(video, function (err, model) {
+        if (err) callback(err, null);
         callback(null, model);
     });
 };
 
+module.exports.createPhoto = function(photo, callback){
+    mongoModels.photo.create(photo, function (err, model) {
+        if (err) callback(err, null);
+        callback(null, model);
+    });
+};
+
+module.exports.createArticle = function(article, callback){
+    mongoModels.article.create(article, function (err, model) {
+        if (err) callback(err, null);
+        callback(null, model);
+    });
+};
+
+module.exports.createUser = function (user, callback) {
+    mongoModels.user.create(user, function (err, model) {
+        if (err) callback(err, null);
+        callback(null, model);
+    });
+};
 module.exports.createFeed = function(feed, callback){
     mongoModels.feed.create(feed, function(err, model) {
         if(err) callback(err, null);
@@ -65,3 +85,17 @@ module.exports.createFeed = function(feed, callback){
     });
 };
 
+module.exports.getAllUsers = function (callback) {
+    mongoModels.user.find().exec(function (err, models) {
+        if (err) callback(err, null);
+        callback(null, models);
+    });
+};
+
+
+module.exports.getAllFeeds = function (callback) {
+    mongoModels.feed.find().exec(function (err, models) {
+        if (err) callback(err, null);
+        callback(null, models);
+    });
+};

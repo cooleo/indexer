@@ -1,0 +1,36 @@
+{
+  "title": "hello",
+  "description": "hello",
+  "url": "helloworld",
+  "content": "hello",
+  "thumbBucket": "hello",
+  "thumb": "hello",
+  "likes": 0,
+  "shares": 0,
+  "pins": 0,
+  "comments": 0,
+  "points": 0,
+  "status": 0,
+  "video":{
+    "title": "hello",
+    "description": "hello",
+    "bucket": "hello",
+    "filename": "hello",
+    "embed":"hello",
+    "sourceId":"hello",
+    "duaration": "hello",
+    "length":    "hello",
+    "thumbBucket": "hello",
+    "thumb": "hello",
+    "type": 1,
+    "source":{
+      "name": "string",
+      "logo": "string",
+      "url": "string"
+    },
+    "extention": "string"
+  },
+  "tags":[
+    {"name":"hung"}, {"name":"nguyen"}
+  ]
+}

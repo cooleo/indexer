@@ -9,7 +9,8 @@ var Feed = Waterline.Collection.extend({
         title: 'string',
         description: 'string',
         url: {
-            type: 'string'
+            type: 'string',
+           // unique:true
         },
         content: 'text',
         source: {
@@ -26,7 +27,8 @@ var Feed = Waterline.Collection.extend({
         comments: 'integer',
         points: 'integer', // = sum(likes, shares, pins, comments)
         tags: {
-            collection: 'tag'
+            collection: 'tag',
+            via:'feeds'
         },
         status: 'integer',//1 active, 0 inactive
         video: {

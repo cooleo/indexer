@@ -31,30 +31,44 @@ app.get('/users', function(req, res) {
   });
 });
 app.get('/feeds', function(req, res) {
-  redis.getAllFeeds(function(err, models) {
+  mongodb.getAllFeeds(function(err, models) {
     if(err) return res.json({ err: err }, 500);
     res.json(models);
   });
 });
 
 app.post('/users', function(req, res) {
-  redis.createUser(req.body, function(err, model) {
+  mongodb.createUser(req.body, function(err, model) {
     if(err) return res.json({ err: err }, 500);
-    mongodb.createUser(req.body, function(err, model) {
+    redis.createUser(model, function(err, respone) {
       if(err) return res.json({ err: err }, 500);
-      res.json(model);
+      res.json(respone);
     });
   });
 
 });
 
 app.post('/feeds', function(req, res) {
-  redis.createFeed(req.body, function(err, model) {
+  redis.createFeed(req.body, function(err, response) {
     if(err) return res.json({ err: err }, 500);
-    mongodb.createFeed(req.body, function(err, model) {
-      if(err) return res.json({ err: err }, 500);
-      res.json(model);
-    });
+     res.json(response);
+    console.log("cuccut........."+ JSON.stringify(response));
+    //redis.createFeed(response, function(err, model) {
+    //  if(err) return res.json({ err: err }, 500);
+    //  res.json(model);
+    //});
+  });
+
+});
+app.post('/tags', function(req, res) {
+  redis.createTag(req.body, function(err, response) {
+    if(err) return res.json({ err: err }, 500);
+    res.json(response);
+    console.log("cuccut........."+ JSON.stringify(response));
+    //redis.createFeed(response, function(err, model) {
+    //  if(err) return res.json({ err: err }, 500);
+    //  res.json(model);
+    //});
   });
 
 });
@@ -84,3 +98,6 @@ app.put('/users/:id', function(req, res) {
 });
 
 app.listen(3000);
+/*
+
+ */

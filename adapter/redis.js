@@ -44,6 +44,28 @@ module.exports.init = function (config) {
         modelConnections = models.connections;
     });
 };
+
+module.exports.createVideo = function(video, callback){
+    redisModels.video.create(video, function (err, model) {
+        if (err) callback(err, null);
+        callback(null, model);
+    });
+};
+
+module.exports.createPhoto = function(photo, callback){
+    redisModels.photo.create(photo, function (err, model) {
+        if (err) callback(err, null);
+        callback(null, model);
+    });
+};
+
+module.exports.createArticle = function(article, callback){
+    redisModels.article.create(article, function (err, model) {
+        if (err) callback(err, null);
+        callback(null, model);
+    });
+};
+
 module.exports.createUser = function (user, callback) {
     redisModels.user.create(user, function (err, model) {
         if (err) callback(err, null);
@@ -63,6 +85,13 @@ module.exports.getAllUsers = function (callback) {
         callback(null, models);
     });
 };
+module.exports.createTag = function(tag, callback){
+    redisModels.tag.create(tag, function(err, model) {
+        if(err) callback(err, null);
+        callback(null, model);
+    });
+};
+
 
 
 module.exports.getAllFeeds = function (callback) {
